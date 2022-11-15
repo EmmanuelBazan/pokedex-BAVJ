@@ -1,12 +1,12 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Account from '../screens/Account';
-import Favorite from '../screens/Favorites';
-import Pokedex from '../screens/Pokedex';
+import AccountStack from './stacks/AccountStack';
+import FavoriteStack from './stacks/FavoriteStack';
+import PokedexStack from './stacks/PokedexStack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import pokeballImage from '../assets/pokeball.webp';
-import Styles from './navigationStyles';
+import Styles from './styles/navigationStyles';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +14,7 @@ const NavigationComponent = () => {
     return(
         <Tab.Navigator>
 
-            <Tab.Screen name='account' component={Account} options={{
+            <Tab.Screen name='accountStack' component={AccountStack} options={{
                 tabBarLabel: 'Mi cuenta',
                 tabBarIcon: ({color, size}) => {
                     return(
@@ -23,12 +23,12 @@ const NavigationComponent = () => {
                 }
                 }} />
 
-            <Tab.Screen name='pokedex' component={Pokedex} options={{
+            <Tab.Screen name='pokedexStack' component={PokedexStack} options={{
                 tabBarLabel: '',
                 tabBarIcon: () => getPokeBall()
             }} />
 
-            <Tab.Screen name='favorite' component={Favorite} options={{
+            <Tab.Screen name='favoriteStack' component={FavoriteStack} options={{
                 tabBarLabel: 'Favoritos',
                 tabBarIcon: ({color, size}) => {
                     return(
